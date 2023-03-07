@@ -1,12 +1,13 @@
 {-# LANGUAGE DataKinds           #-}
 {-# LANGUAGE NoImplicitPrelude   #-}
 {-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE OverloadedStrings   #-}
 
 module Burn where
 
 import qualified Plutus.V2.Ledger.Api as PlutusV2
 import           PlutusTx             (BuiltinData, compile)
-import           PlutusTx.Prelude     (error)
+import           PlutusTx.Prelude     (traceError)
 import           Prelude              (IO)
 import           Utilities            (writeValidatorToFile)
 
@@ -16,7 +17,7 @@ import           Utilities            (writeValidatorToFile)
 -- This validator always fails
 --                    Datum         Redeemer     ScriptContext
 mkBurnValidator :: BuiltinData -> BuiltinData -> BuiltinData -> ()
-mkBurnValidator _ _ _ = error ()
+mkBurnValidator _ _ _ = traceError "Burning ADA"
 {-# INLINABLE mkBurnValidator #-}
 
 validator :: PlutusV2.Validator
