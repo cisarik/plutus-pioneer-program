@@ -1,7 +1,7 @@
-{-# LANGUAGE DataKinds           #-}
-{-# LANGUAGE NoImplicitPrelude   #-}
-{-# LANGUAGE TemplateHaskell     #-}
-{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE DataKinds         #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
 module Burn where
 
@@ -17,7 +17,7 @@ import           Utilities            (writeValidatorToFile)
 -- This validator always fails
 --                    Datum         Redeemer     ScriptContext
 mkBurnValidator :: BuiltinData -> BuiltinData -> BuiltinData -> ()
-mkBurnValidator _ _ _ = traceError "Burning ADA"
+mkBurnValidator _ _ _ = traceError "it burns!!!"
 {-# INLINABLE mkBurnValidator #-}
 
 validator :: PlutusV2.Validator
